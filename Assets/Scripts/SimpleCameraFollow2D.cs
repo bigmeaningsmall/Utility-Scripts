@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SimpleCameraFollow : MonoBehaviour
+public class SimpleCameraFollow2D : MonoBehaviour
 {
     public Transform target;
     public Vector2 offset = new Vector2(0, 3);
