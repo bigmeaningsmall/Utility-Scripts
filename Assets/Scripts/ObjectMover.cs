@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectMover : MonoBehaviour
 {
-    [SerializeField] private Vector3 direction = new Vector3(0.01f, 0, 0);
+    [SerializeField] private Vector3 direction = new Vector3(0.001f, 0, 0);
     void Start()
     {
         
