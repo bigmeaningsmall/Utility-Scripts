@@ -15,10 +15,24 @@ public class RotateTowardsMouse2D : MonoBehaviour
     public bool useSmoothRotation = true;
     public float smoothSpeed = 20f;
 
+    private Vector3 cameraInitialPosition;
+    
+    void Start()
+    {
+        // Store the initial position of the camera
+        cameraInitialPosition = Camera.main.transform.position;
+    }
+    
     void Update()
     {
-        // Convert mouse position into world coordinates
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+        
+        // Calculate the camera's movement offset
+        Vector3 cameraMovementOffset = Camera.main.transform.position - cameraInitialPosition;
+        
+        Vector2 mousePosition;
+        
+        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+        //Debug.Log(mousePosition);
 
         // Get direction from the sprite to the mouse
         Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
@@ -76,5 +90,9 @@ public class RotateTowardsMouse2D : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, finalAngle);
                 break;
         }
+        
+        //apply a constant movement in the x direction (for testing
+        // transform.position += new Vector3(0.001f, 0, 0);
     }
+
 }
