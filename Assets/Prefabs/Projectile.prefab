@@ -122,7 +122,7 @@ MonoBehaviour:
   destroyAfterTime: 1
   destructionTime: 5
   destroyOnCollision: 1
-  collisionDestroyThreshold: 2
+  collisionDestroyThreshold: 3
   destroyOffScreen: 1
   destroyIfIdle: 0
   idleTimeThreshold: 3
