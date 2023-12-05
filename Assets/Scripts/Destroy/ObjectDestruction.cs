@@ -28,6 +28,7 @@ public class ObjectDestruction : MonoBehaviour
         if (destroyAfterTime)
         {
             Destroy(gameObject, destructionTime);
+            Debug.Log("Destroyed: " + gameObject.name + " after " + destructionTime + " seconds of time");
         }
     }
 
