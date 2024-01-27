@@ -7,7 +7,7 @@ public class ObjectDestruction : MonoBehaviour
 
     public bool destroyOnCollision = true;
     public int collisionDestroyThreshold = 2; // Number of collisions before destruction
-    private int collisionCount = 0;
+    private int collisionCount;
 
     public bool destroyOffScreen = true;
 
