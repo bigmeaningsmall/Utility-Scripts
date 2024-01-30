@@ -1,5 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// This is a class for destroying objects using verios conditions
+/// - destroy after a fixed time period
+/// - destroy after a set number of collisions with another object
+/// - destroy if the object is off screen - camera render viewport
+/// - destroy if the object is idle for a fixed time - not moving
+/// </summary>
+
 public class ObjectDestruction : MonoBehaviour
 {
     public bool destroyAfterTime = true;
