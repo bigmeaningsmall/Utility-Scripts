@@ -2,38 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// this class is in development and is not used in the game
-/// </summary>
+public class RayCastDebugger : MonoBehaviour
+{
+    public Vector3 direction = Vector3.forward;
+    public float maxDistance = 10.0f;
+    public Color hitColor = Color.green;
+    public Color noHitColor = Color.red;
+    public Color hitPointColor = Color.blue; // Color for the hit point marker
+    public float hitPointSize = 0.2f; // Size of the hit point marker
 
-public class RayCastDebugger : MonoBehaviour{
-    // Start is called before the first frame update
-    void Start(){
-    }
+    void Update()
+    {
+        RaycastHit hit;
+        bool hasHit = Physics.Raycast(transform.position, transform.TransformDirection(direction), out hit, maxDistance);
 
-    // Update is called once per frame
-    void Update(){
-        Vector2 mousePosition;
-        // Create a ray from the camera towards the mouse position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        // Determine the distance and color of the ray based on whether it hit something
+        float distance = hasHit ? hit.distance : maxDistance;
+        Color color = hasHit ? hitColor : noHitColor;
 
-        // Perform the raycast
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        // Draw the ray in the editor
+        Debug.DrawRay(transform.position, transform.TransformDirection(direction) * distance, color);
 
-        if (hit.collider != null){
-            // Set the mouse position to the hit point
-            mousePosition = hit.point;
-
-            // Calculate the direction from the camera to the hit point
-            Vector2 direction = mousePosition - (Vector2)Camera.main.transform.position;
-
-            // Draw a ray in the Scene view from the camera to the hit point
-            Debug.DrawRay(Camera.main.transform.position, direction, Color.green);
-        }
-        else{
-            // Draw a ray in the Scene view to represent the full length of the ray
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
-            return; // Early exit if the raycast didn't hit anything
+        if (hasHit)
+        {
+            Debug.Log($"{hit.collider.name} was hit by the ray.");
+            Debug.Log($"Hit point position: {hit.point}");
+            Debug.Log($"Hit normal: {hit.normal}");
+            
+            // Draw a cross at the hit point
+            Vector3 hitPoint = hit.point;
+            Debug.DrawRay(hitPoint + Vector3.up * hitPointSize, Vector3.down * hitPointSize * 2, hitPointColor, 0, false);
+            Debug.DrawRay(hitPoint + Vector3.left * hitPointSize, Vector3.right * hitPointSize * 2, hitPointColor, 0, false);
+            Debug.DrawRay(hitPoint + Vector3.forward * hitPointSize, Vector3.back * hitPointSize * 2, hitPointColor, 0, false);
         }
     }
 }
+
