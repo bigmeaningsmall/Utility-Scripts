@@ -1,5 +1,31 @@
 using UnityEngine;
 
+/*
+ * The `RotateTowardsMouse2D` class is a MonoBehaviour that makes a GameObject rotate towards the mouse cursor in a 2D space.
+ *
+ * The class has several public properties that can be adjusted in the Unity editor:
+ * - `rotationAxis`: The axis around which the GameObject rotates.
+ * - `useClamp`: Whether to clamp the rotation angle.
+ * - `minAngle` and `maxAngle`: The minimum and maximum angles when clamping is enabled.
+ * - `useScale`: Whether to scale the rotation angle.
+ * - `scale`: The scale factor for the rotation angle.
+ * - `useNormalization`: Whether to normalize the rotation angle to the range 0-360.
+ * - `useSmoothRotation`: Whether to smoothly interpolate the rotation.
+ * - `smoothSpeed`: The speed of the smooth rotation.
+ *
+ * In the `Start` method, it stores the initial position of the main camera.
+ *
+ * In the `Update` method, it:
+ * - Calculates the camera's movement offset.
+ * - Retrieves the mouse position in world coordinates.
+ * - Calculates the direction from the GameObject to the mouse cursor.
+ * - Calculates the angle of this direction in degrees.
+ * - Optionally scales, normalizes, and clamps the angle.
+ * - Adjusts the angle based on the GameObject's default orientation.
+ * - Optionally smoothly interpolates the GameObject's rotation towards the calculated angle.
+ * - Applies the final rotation to the GameObject.
+ */
+
 public class RotateTowardsMouse2D : MonoBehaviour
 {
     // Enum to select the rotation axis

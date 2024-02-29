@@ -1,5 +1,25 @@
 using UnityEngine;
 
+/*
+ * The `RayCastCameraWithLineRenderer` class is a MonoBehaviour that is used to visualize raycasts from the main camera in Unity using a LineRenderer.
+ * It casts a ray from the camera's position in the direction of the mouse cursor and logs information about any objects hit by the ray.
+ *
+ * The class has several public properties that can be adjusted in the Unity editor, such as:
+ * - The maximum distance of the raycast
+ * - The colors used to visualize the ray and the hit point
+ * - Offsets for the ray's origin and end point
+ * - A GameObject representing the end of the ray
+ *
+ * In the `Start` method, it caches a reference to the main camera and the LineRenderer component, and sets the start and end widths of the LineRenderer.
+ * If an end sphere GameObject is provided, it also caches the material of the sphere's Renderer.
+ *
+ * In the `Update` method, it calls the `PerformRaycastAndVisualize` method, which performs the raycast and visualizes the results using the LineRenderer.
+ * It sets the positions and color of the LineRenderer based on whether the raycast hit an object.
+ * If an end sphere is provided, it also updates the position and color of the sphere.
+ *
+ * If the raycast hits an object, it logs the name of the object and the position of the hit point.
+ */
+
 [RequireComponent(typeof(LineRenderer))]
 public class RayCastCameraWithLineRenderer : MonoBehaviour
 {

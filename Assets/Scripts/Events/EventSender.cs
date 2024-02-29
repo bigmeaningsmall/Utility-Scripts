@@ -27,18 +27,24 @@ public class EventSender : MonoBehaviour
         //if the space key is pressed, send the event
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //if there are any subscribers to the event, send the event
-            if (OnEvent != null)
-            {
-                OnEvent();
-                Debug.Log("Event sent");
-            }
-            //if there are any subscribers to the event, send the event with parameters
-            if (OnEventWithParameters != null)
-            {
-                OnEventWithParameters(nameToSend, numToSend);
-                Debug.Log("Event with parameters sent" + nameToSend + " " + numToSend);
-            }
+            SendEvent();
+        }
+    }
+    
+    //a function to call to send the event
+    public void SendEvent()
+    {
+        //if there are any subscribers to the event, send the event
+        if (OnEvent != null)
+        {
+            OnEvent();
+            Debug.Log("Event sent");
+        }
+        //if there are any subscribers to the event, send the event with parameters
+        if (OnEventWithParameters != null)
+        {
+            OnEventWithParameters(nameToSend, numToSend);
+            Debug.Log("Event with parameters sent" + nameToSend + " " + numToSend);
         }
     }
 }

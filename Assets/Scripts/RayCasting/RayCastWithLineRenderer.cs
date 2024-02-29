@@ -2,6 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * The `RayCastWithLineRenderer` class is a MonoBehaviour that is used to perform raycasts in Unity and visualize the results using a LineRenderer.
+ * It casts a ray from the object's position in the specified direction and changes the color of the LineRenderer based on whether the raycast hits an object.
+ *
+ * The class has several public properties that can be adjusted in the Unity editor, such as:
+ * - The direction of the raycast
+ * - The maximum distance of the raycast
+ * - The colors used when the raycast hits an object or does not hit an object
+ * - A GameObject representing the end of the ray
+ *
+ * In the `Start` method, it caches a reference to the LineRenderer component and sets the start and end widths of the LineRenderer.
+ * If an end sphere GameObject is provided, it also initializes the sphere's color.
+ *
+ * In the `Update` method, it calls the `PerformRaycastAndVisualize` method, which performs the raycast and visualizes the results using the LineRenderer.
+ * It sets the positions and color of the LineRenderer based on whether the raycast hit an object.
+ * If an end sphere is provided, it also updates the position and color of the sphere.
+ *
+ * If the raycast hits an object, it logs the name of the object and the position of the hit point.
+ */
+
 [RequireComponent(typeof(LineRenderer))]
 public class RayCastWithLineRenderer : MonoBehaviour
 {

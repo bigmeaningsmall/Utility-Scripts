@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/*
+ * The `ArrayPermutations` class provides methods for creating and manipulating arrays of different types (int, Int16, byte).
+ *
+ * The class has several static methods:
+ * - `IntArray_from_ElementRepeatNumbers`, `Int16Array_from_ElementRepeatNumbers`, and `byteArray_from_ElementRepeatNumbers` methods create an array of the specified type with a certain number of elements and repeats.
+ * - `RandPerm_intArray`, `RandPerm_Int16Array`, and `RandPerm_byteArray` methods generate a random permutation of the input array.
+ * - `Randperm_intList_from_GameObjectListElementClones` method generates a random permutation of a list of integers created from a list of GameObjects and a specified number of clones.
+ * - `RandpermList_from_ElementClones` method creates a list of integers from a list of GameObjects and a specified number of clones.
+ * - `RandPerm_List` method generates a random permutation of the input list of integers.
+ * - `RemoveFirst_intListElement` method removes and returns the first element of the input list of integers.
+ *
+ * These methods are useful for creating randomized sequences or permutations of elements, which can be used in various scenarios such as generating random trials in a game.
+ */
+
 public class ArrayPermutations
 {
 

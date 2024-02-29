@@ -1,5 +1,22 @@
 using UnityEngine;
 
+/*
+ * The `LookAtMouse2D` class is a MonoBehaviour that makes a GameObject look at the mouse cursor in a 2D space.
+ *
+ * The class has a public property `zAxisValue` that can be adjusted in the Unity editor. This value represents the Z-axis value where the game action happens.
+ *
+ * In the `Update` method, it:
+ * - Retrieves the direction from the GameObject to the mouse cursor using the `GetMouseDirection` method.
+ * - Calculates the angle of this direction in degrees.
+ * - Sets the rotation of the GameObject to this angle, offset by -90 degrees to align the GameObject's up direction with the mouse cursor.
+ *
+ * The `GetMouseDirection` method:
+ * - Retrieves the mouse position in screen coordinates.
+ * - Converts the screen coordinates to world coordinates using the `ScreenToWorldPoint` method of the main camera.
+ * - Sets the z-coordinate of the world position to the `zAxisValue` to keep the GameObject on the specified Z-plane.
+ * - Returns the direction from the GameObject to the mouse cursor.
+ */
+
 public class LookAtMouse2D : MonoBehaviour
 {
     public float zAxisValue = 0; // Z-axis value where the game action happens
