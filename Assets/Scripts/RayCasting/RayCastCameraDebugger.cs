@@ -1,5 +1,22 @@
 using UnityEngine;
 
+/*
+ * The `RayCastCameraDebugger` class is a MonoBehaviour that is used to visualize raycasts from the main camera in Unity.
+ * It casts a ray from the camera's position in the direction of the mouse cursor and logs information about any objects hit by the ray.
+ *
+ * The class has several public properties that can be adjusted in the Unity editor, such as:
+ * - The maximum distance of the raycast
+ * - The colors used to visualize the ray and the hit point
+ * - Offsets for the ray's origin and end point
+ *
+ * In the `Start` method, it caches a reference to the main camera.
+ * In the `Update` method, it calls the `PerformRaycastAndVisualize` method, which performs the raycast and visualizes the results using `Debug.DrawRay`.
+ *
+ * If the raycast hits an object, it logs the name of the object, the position of the hit point, and the normal of the hit surface.
+ * It also draws a cross at the hit point.
+ * If the raycast does not hit an object, it does not perform any additional actions.
+ */
+
 public class RayCastCameraDebugger : MonoBehaviour
 {
     public float maxDistance = 100.0f;
